@@ -54,22 +54,73 @@
       Start code
 
       ===================== */
+console.log(healthCenters);
+
+  // var healthKeys = [["LNG", "LAT", "OBJECTID", "NAME", "ORGANIZATION", "ZIP", "PHONE", "WEBSITE", "DENTAL_PHONE", "FULL_ADDRESS"]];
+var uniteArray = [];
+uniteArray.push(Object.keys(healthCenters[0]));
+console.log(uniteArray);
+for( i = 0; i<healthCenters.length; i++) {
+    var uniteValues = Object.values(healthCenters[i]);
+    uniteArray.push(uniteValues.slice(0,2));
+
+};
+  console.log(uniteArray);
+
+  var uniteLabel = [];
+  console.log(uniteLabel);
+  for( i = 0; i<healthCenters.length; i++) {
+      var uniteValues = Object.values(healthCenters[i]);
+      uniteLabel.push(uniteValues[3]);
+};
+console.log(uniteLabel);
+
+  //something should go here
+//   var moveKey = [];
+//   var transferKey = function() {
+//     var transferData = healthKeys[data.length];
+//     for ( var health in transferData) {
+//       data.push(health);
+//     };
+//   };
+//   transferKey();
+// moveKey.push(data);
+// console.log(moveKey);
+//
+//   var mapKey = function(){
+//   for (i = 0; i < data.length; i++){
+//     var mapCenter = data[i];
+//     var mapC = [];
+//     for (var center in mapCenter) {
+//       mapC.push(mapCenter[center]);
+//     };
+//     moveKey.push(mapC);
+//   };
+// };
+//   mapKey();
+//   console.log(moveKey);
+//     //  console.log(healthArray[i]);
+//
 
       var jsonToCsv = function(json) { console.log(json); };
+      var addMarkers = function(map, xy, label) {
+        console.log(xy);
+        for(i = 1; i < xy.length; i++) {
+            console.log(xy[i-1],label[i]);
+            L.marker([xy[i][1],xy[i][0]]).bindPopup(label[i-1]).addTo(map);
+        }
+      };
+      addMarkers(map, uniteArray, uniteLabel);
 
-
-      var addMarkers = function(map) {};
-
+  console.log("Hello");
+</script>
       /* =====================
 
       End code
 
       ===================== */
 
+      // jsonToCsv(healthCenters);
+      // addMarkers(map);
 
-      jsonToCsv(healthCenters);
-      addMarkers(map);
-    </script>
-    <!--Your code ends here-->
-  </body>
 </html>

@@ -65,6 +65,24 @@
 
     var data = bikeArrayClean;
 
+    var dataFiltered = [];
+
+    for(i = 0; i < bikeArrayClean.length; i++) {
+      if (bikeArrayClean[i][3] > 20) {
+        dataFiltered.push(bikeArrayClean[i])
+      }
+  };
+console.log(dataFiltered);
+
+// var data = bikeArrayDirty;
+//
+// var dataFiltered = [];
+//     for(i = 0; i < bikeArrayDirty.length; i++) {
+//       if (bikeArrayDirty[i][3] > 20) {
+//         dataFiltered.push(bikeArrayDirty[i])
+//       }
+//     };
+
     /* =====================
 
     Start code to filter data
@@ -97,6 +115,10 @@
     Start code to add markers to map
 
     ===================== */
+    for(i = 0; i <dataFiltered.length; i++) {
+        L.marker([dataFiltered[i][1],dataFiltered[i][0]]).bindPopup(dataFiltered[i][2]).addTo(map);
+    };
+
 
 
 
